@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Order</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   </head>
+     <body style="text-align:center;">
+      <h1>Place Order</h1>
+      
+        
+      <form  th:action="@{/order}"
+
+         th:object="${menu}" method="GET">
+         Food Item:
+  
+         <input type="text" th:field="*{foodItem}" />    
+         <br/>
+         Available:
+         <input type="text" th:field="*{available}" />     
+         <br/>
+         Quantity:
+  
+         <input type="text" th:field="*{quantity}" />    
+         <br/>
+         Price:
+  
+         <input type="text" th:field="*{price}" />    
+         <br/>
+         <input type="submit" value="order" />
+        
+      </form>
+       
+      <br/>
+       
+      <!-- Check if errorMessage is not null and not empty -->
+       
+      
+       
+   </body>
+</html>
