@@ -5,7 +5,7 @@ Create two topics "menu-in" and "menu-out"
 Run App as spring boot(use port 8080)
 
 #Web controller
-# USE INTERNET EXPLORER( CHROME HAS ISSUES WITH WEBSOCKET)
+ USE INTERNET EXPLORER( CHROME HAS ISSUES WITH WEBSOCKET)
 
 #TO PUSH MENU IN BACK, USE:
 http://localhost:8080/menu
