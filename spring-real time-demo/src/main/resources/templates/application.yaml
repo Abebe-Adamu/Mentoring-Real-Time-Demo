@@ -6,9 +6,9 @@
           brokers: localhost:9092
       bindings:
         menu-in:
-          destination: menu
+          destination: x
           contentType: application/json
         menu-out:
-          destination: menu
+          destination: x
           contentType: application/json
           

@@ -9,7 +9,7 @@ function connect() {
   stompClient.connect({}, function (frame) {
       stompClient.subscribe('/topic/pushNotification', function (notification) {
     	  
-          $('#textArea').val(notification);
+          $('#textArea').val(notification.body);
        });
   });
 }

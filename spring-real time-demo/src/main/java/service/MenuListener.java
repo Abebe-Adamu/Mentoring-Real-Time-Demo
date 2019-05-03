@@ -18,14 +18,13 @@ import model.Menu;
 public class MenuListener {
 	 @Autowired
 	 
-	 
 	    private SimpMessagingTemplate template;
-
-	    @StreamListener(target = "menu-out")
+        @StreamListener(target = "menu-out")
 	    public void processMessage(Menu pushMessage){
 	    	
 	        this.template.convertAndSend("/topic/pushNotification", pushMessage);
 	    }
+        
 	
 	static Menu m = new Menu();
     @StreamListener(MenuStream.INPUT)
