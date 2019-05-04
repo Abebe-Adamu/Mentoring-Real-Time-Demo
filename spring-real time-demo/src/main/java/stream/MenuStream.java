@@ -4,10 +4,11 @@ import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.SubscribableChannel;
+import constants.Constants;
 
 public interface MenuStream {
-	String INPUT = "menu-in";
-    String OUTPUT = "menu-out";
+	String INPUT = Constants.inputTopic;
+    String OUTPUT = Constants.outputTopic;
 
     @Input(INPUT)
     SubscribableChannel inboundMenu();

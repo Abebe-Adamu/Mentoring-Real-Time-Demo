@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import model.Menu;
 //import model.Message;
 
+import constants.Constants;
+
 @Component
 @Slf4j
 public class MenuListener {
@@ -21,7 +23,7 @@ public class MenuListener {
 	 
 	    private SimpMessagingTemplate template;
 
-	    @StreamListener(target = "menu-out")
+	    @StreamListener(target = Constants.outputTopic)
 	    public void processMessage(Menu pushMessage){
 	    	
 	        this.template.convertAndSend("/topic/pushNotification", pushMessage);
