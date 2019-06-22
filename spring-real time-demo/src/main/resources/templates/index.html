@@ -3,15 +3,48 @@
    <head>
       <meta charset="UTF-8" />
       <title>Order</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" />
    </head>
-<body>
-<textarea   id="textArea"  rows="28" cols="100"></textarea>
-<script src='js/jquery.min.js'></script>
+<body style="background-color:LightSilver;">
 <script src="/webjars/sockjs-client/sockjs.min.js"></script>
 <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--  html code goes here ------------------------------------------ -->
 
-<script src="js/index.js"></script>
+
+
+<p id="demo"></p>
+
+
+<!--  JQuerry Stomp client ------------------------------------  -->
+<script type="text/javascript" >
+$( window ).ready(function() {
+	  connect();
+	});
+
+	function connect() {
+		
+	  var socket = new SockJS('/websocket');
+	  stompClient = Stomp.over(socket);
+	  stompClient.connect({}, function (frame) {
+	      stompClient.subscribe('/topic/pushNotification', function (notification) {
+	    	  
+	    	  var i=0;
+	    	  var x, txt;
+	    	 var food=["Food item","Available","Quantity","Price"];
+	    	  let obj=JSON.parse(notification.body);
+	    	  txt += "<table border='1'>"
+	    		    for (x in obj ) {
+	    		      txt += "<tr> <td>"+food[i++] +"<td>" +obj[x] + "</td></tr>";
+	    		    }
+	    		    txt += "</table>"    
+	    		    document.getElementById("demo").innerHTML = txt;
+	    	  
+	    		
+	       });
+	  });
+	}
+</script>
 
 </body>
 <style type="text/css">
